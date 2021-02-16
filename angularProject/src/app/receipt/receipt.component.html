@@ -1,0 +1,98 @@
+<div class="container p-2">
+  
+  <h1 style="text-align: center;font-size: 80px; color:white">Receipt #{{receipt.receiptID}}</h1>
+  <h2 style="text-align: center;font-size: 40px; color:white">Room #{{receipt.roomID}}</h2>
+
+  <form (ngSubmit)="onSubmit()" ngNativeValidate>
+
+    <div class="row p-5">
+
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color:white">
+        <label>Title</label>
+      </div>
+
+      <div class="col-lg" style="text-align: center">
+        <input [(ngModel)]="receipt.title" type="text" name="title" class="form-control" required>
+      </div>
+
+    </div>
+
+    <div class="row p-5">
+
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color:white">
+        Value
+      </div>
+
+      <div class="col-lg-4" style="text-align: center">
+        <input [(ngModel)]="receipt.value" type="value" name="value" class="form-control" required>
+      </div>
+
+      <div class="col-lg-2" style="text-align: center"></div>
+
+      <div class="col-lg-2" style="text-align: left; vertical-align: middle; font-size: 24px">
+        <div class="form-group">
+          <select [ngModel]="selected" (ngModelChange)="onChange($event)" type="cur" name="cur" class="form-control" required>
+            <option  [ngValue]="c" *ngFor="let c of currency">{{c.name}}</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row p-5">
+
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color:white">
+        <label>Participants</label>
+      </div>
+
+      <div class="col-lg-6" style="text-align: left; vertical-align: middle; font-size: 24px; color:white">
+          <div class="form-group">
+            <tr *ngFor ="let x of friends">
+              <input type="checkbox" (change)="changeSelection(x)" name="particitants" >{{x.email}}
+          </tr>
+         </div>
+      </div>
+    </div>
+
+    <div class="row p-5">
+
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color:white">
+        <label>Paid by</label>
+      </div>
+
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color:white">
+        <div class="form-group">
+          <select [(ngModel)]="receipt.paidBy" (ngModelChange)="onChangePaidBy()" type="paidBy" name="paidBy" class="form-control" required>
+            <option  *ngFor="let f of selectedItemsList">{{f.email}} </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-5">
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color:white">
+        <label>Description</label>
+      </div>
+      <div class="col-lg" style="text-align: center">
+        <input [(ngModel)]="receipt.description" type="description" name="description" class="form-control">
+      </div>
+    </div>
+
+
+    <div class="row p-5">
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle;">
+        <button routerLink="../../" type="button" class="btn btn-danger btn-lg">Discard </button>
+      </div>
+
+      <div class="col-lg-4"></div>
+
+      <div class="col-lg-4" style="text-align: right; vertical-align: middle;">
+        <button type="submit" class="btn btn-success btn-lg">Add </button>
+      </div>
+
+    </div>
+
+
+  </form>
+
+</div>

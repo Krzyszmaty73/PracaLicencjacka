@@ -1,0 +1,63 @@
+<div class="container my-5">
+
+  <div class="row ">
+    <div class="col" style="text-align: center; vertical-align: middle; font-size: 60px; color:white">
+      <label>Enter Room</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6" style="text-align: center;">
+
+        <input type="joinRoomID" class="form-control" id="joinRoomID" aria-describedby="joinRoomID" #myInput
+        (keydown.enter)="OnInput(myInput.value)">
+    
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  
+  <div class="row my-5 ">
+  
+    <div class="col" style="text-align: center; vertical-align: middle;">
+      <button (click)="createRoomID()" type="button" class="btn btn-success btn-lg">Create new room!</button>
+    </div>
+  </div>
+
+  <div class="row p-5">
+    <div class="col" style="text-align: center; vertical-align: middle; font-size: 60px; color:white">
+      <label>Your Rooms</label>
+    </div>
+  </div>
+
+  <div class="row bg-light">
+  
+    <div class="col" style="text-align: center;">
+
+      <table class="table table" style="text-align: center">
+        <thead>
+          <tr>
+            <th>Room number</th>
+            <th>Participants</th>
+            <th>Description</th>
+            <th>Costs</th>
+            <th>Status</th>
+            <th>Chceck summary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of rooms">
+            <td>{{room.roomID}}</td>
+            <td>{{room.participantsIDs}}</td>
+            <td>{{room.description}}</td>
+            <td>{{room.value}}</td>
+            <td>{{room.status}}</td>
+            <td><button *ngIf='checkStatus(room.status)' (click)="getSummary(room.roomID)" type="button" class="btn btn-info btn-info">Check</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+

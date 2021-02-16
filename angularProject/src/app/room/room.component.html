@@ -1,0 +1,126 @@
+<h1 style="text-align: center;font-size: 60px; color: white">Room #{{roomID}}</h1>
+
+<div class="container">
+
+  <form (ngSubmit)="addDescription()" >
+    <div *ngIf='showLabel' class="row p-5">
+
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color: white">
+        Room description
+      </div>
+
+      <div class="col-lg-4" style="text-align: center">
+        <input type="roomDescription" class="form-control" id="roomDescription" aria-describedby="roomDescription" [(ngModel)]="roomDescription" name="roomDescription"
+         placeholder = {{this.roomDescription}}>
+      </div>
+
+      <div class="col-lg-4" style="text-align: right">
+        <button type="submit" class="btn btn-success btn-lg" name="addDescription">Add </button>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="row p-5 ">
+
+    <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color: white">
+      <label>Time to split your payments</label>
+    </div>
+
+    <div class="col-lg-4" style="text-align: center">
+      <button (click)="createReceipID()" type="button" class="btn btn-success btn-lg">Add Receipt</button>
+    </div>
+    <div class="col-lg-4">
+    </div>
+
+  </div>
+
+  <form (ngSubmit)="addFriend()" ngNativeValidate>
+    <div *ngIf='showLabel' class="row p-5 ">
+
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color: white">
+        Add friend
+      </div>
+
+      <div class="col-lg-4" style="text-align: center">
+        <input ngModel [email]="true" [(ngModel)]="email" type="email" class="form-control" id="InputEmail1"
+          aria-describedby="emailHelp" placeholder="Enter email" name="inputName" required>
+      </div>
+
+      <div class="col-lg-4" style="text-align: right">
+        <button type="submit" class="btn btn-success btn-lg" name="addFriend">Add Friend </button>
+      </div>
+    </div>
+
+    <div class="row p-5 ">
+      <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color: white">
+        <label>Participants</label>
+      </div>
+    </div>
+
+    <div class="row bg-light">
+      <table class="table table" style="text-align: center">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of friends">
+            <td>{{x.name}}</td>
+            <td>{{x.surname}}</td>
+            <td>{{x.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </form>
+
+  <div class="row p-5 ">
+    <div class="col-lg-4" style="text-align: left; vertical-align: middle; font-size: 24px; color: white">
+      <label>Receipt tab</label>
+    </div>
+  </div>
+
+  <div class="row bg-light">
+    <table class="table table" style="text-align: center">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Value</th>
+          <th>Currency</th>
+          <th>Participants</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let receipt of receipts">
+          <td>{{receipt.title}}</td>
+          <td>{{receipt.value}}</td>
+          <td>{{receipt.currency}}</td>
+          <td><label *ngFor="let participant of receipt.participantsIDs">{{participant}}, </label></td>
+          <td>{{receipt.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="row p-5">
+
+    <div class="col-lg-4" style="text-align: left; vertical-align: middle;">
+      <button routerLink="../.." type="button" class="btn btn-danger btn-lg">Change Room </button>
+    </div>
+
+    <div class="col-lg-4"></div>
+
+    <div *ngIf='showLabel' class="col-lg-4" style="text-align: right; vertical-align: middle;">
+      <button (click)="roomSummary()" type="button" class="btn btn-info btn-lg">Close Room </button>
+    </div>
+
+  </div>
+
+</div>

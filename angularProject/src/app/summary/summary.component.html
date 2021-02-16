@@ -1,0 +1,34 @@
+<div class="container p-2">
+
+  <h1 style="text-align: center;font-size: 40px; color:white">Calculation of costs for Room #{{roomID}}</h1>
+
+  <div class="row bg-light">
+    <table class="table table" style="text-align: center " >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of roomS">
+          <td>{{x.name}}</td>
+          <td>{{x.value}}</td>
+          <td>{{x.currency}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row p-5">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"></div>
+
+    <div class="col-lg-4" style="text-align: right; vertical-align: middle;">
+      <button (click)="homeNavigation()" type="button" class="btn btn-info btn-lg">Home </button>
+    </div>
+
+  </div>
+
+</div>

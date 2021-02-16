@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "downlevelIteration": true,
+        "target": "ES5",
+        "baseUrl": "src",
+        "paths": {
+            "@/*": [
+                "app/*"
+            ]
+        }
+    }
+}
