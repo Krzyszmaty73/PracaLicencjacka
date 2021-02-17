@@ -20,4 +20,4 @@ Aby uruchomić front-end z wykorzystaniem klienta HTTPS należy wejść do folde
 Następnie należy wpisać w przeglądarkę adres https://localhost:4200
 
 ## Status projektu
-Projekt jest skończony w pewnym etapie. Planowana jest rozbudowa w późniejszym czasie.
+Projekt jest skończony. Planowana jest rozbudowa w późniejszym czasie.
