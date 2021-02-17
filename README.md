@@ -11,7 +11,7 @@ Celem pracy licencjackiej jest zaprojektowanie i zaimplementowanie aplikacji web
 ![Example screenshot](./img/architektura.png)
 
 ## Uruchomienie
-Proces uruchamiania aplikacji należy zacząć od pobrania kodu z repozytorium($ git clone https://github.com/Krzyszmaty73/PracaLicencjacka.git $) Aby uruchmić back-end należy użyć komendy (mvnw spring-boot:run) w pliku o nazwie SpringBoot.
+Proces uruchamiania aplikacji należy zacząć od pobrania kodu z repozytorium (git clone https://github.com/Krzyszmaty73/PracaLicencjacka.git) Aby uruchmić back-end należy użyć komendy (mvnw spring-boot:run) w pliku o nazwie SpringBoot.
 Aby uruchomić front-end z wykorzystaniem klienta HTTPS należy wejść do pliku o nazwie AngularSpringboot. Podczas uruchamiania należy podać poprawną ścieżkę, gdzie znajdują się pobrane wygenerowane certyfikaty (ng serve --ssl --ssl-key c:\...\angularProject\certificates\localhost.key  --ssl-cert c:\...\angularProject\certificates\localhost.crt)
 
 Następnie należy wpisać w przeglądarkę adres https://localhost:4200
