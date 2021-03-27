@@ -8,10 +8,11 @@ import { AuthenticationService } from '../services/authentication.service'
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
-    
+ 
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    siteKey: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
         if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
+        this.siteKey='6LdqvIsaAAAAACScLkvEU7yFtEdj0vAIGA3nc3MM';
     }
 
     ngOnInit() {
@@ -31,12 +33,15 @@ export class RegisterComponent implements OnInit {
             name: ['', Validators.required],
             surname: ['', Validators.required],
             email: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            recaptcha: ['', Validators.required]
         });
     }
 
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
+
+
 
     onSubmit() {
         this.submitted = true;

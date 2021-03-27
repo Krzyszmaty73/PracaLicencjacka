@@ -19,5 +19,5 @@ const routes: Routes = [
   {path:'room/summary/:roomID', component:SummaryComponent}
 ];
 
-export const appRoutingModule = RouterModule.forRoot(routes);
+export const appRoutingModule = RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' });
 

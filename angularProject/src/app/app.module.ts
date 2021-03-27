@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { appRoutingModule } from './app-routing.module';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { NgxCaptchaModule } from 'ngx-captcha';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './room/room.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +36,9 @@ import { SummaryComponent } from './summary/summary.component'
     appRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxChartsModule,
+    NgxCaptchaModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

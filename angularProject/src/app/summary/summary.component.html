@@ -20,7 +20,22 @@
       </tbody>
     </table>
   </div>
-
+  <div class="row p-5">
+  </div>
+  <div class="row bg-light">
+  <ngx-charts-bar-vertical 
+    [view]="[1000,600]"
+    [results]="roomS"
+    [legendTitle]="'Participants'"
+    [yAxisLabel]="'Amount'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+</ngx-charts-bar-vertical>
+</div>
   <div class="row p-5">
     <div class="col-lg-4"></div>
     <div class="col-lg-4"></div>
