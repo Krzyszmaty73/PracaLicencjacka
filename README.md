@@ -4,7 +4,7 @@
 Aplikacja stworzona do dzielenia wspólnych kosztów.
 Interfejs użytkownika (front-end) został stworzony przy użyciu frameworku Angular. Strona serwerowa (back-end) została zaimplementowana w Javie przy użyciu frameworku Spring Boot.
 ## Wykorzystane technologie:
-* Angular - Angular CLI: 10.0.3
+* Angular - Angular CLI: 11.2.5
 * Spring Boot - Java 1.8 SDK 8
 
 ## Architektura aplikacji:
