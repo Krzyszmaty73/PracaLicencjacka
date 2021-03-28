@@ -1,13 +1,8 @@
 # Split2Go
 
 ## Informacje o aplikacji
-<<<<<<< HEAD
-Interfejs użytkownika (front-end) został stworzony przy użyciu frameworku Angular. Strona serwerowa (back-end) została zaimplementowana w Javie przy użyciu frameworku Spring Boot. 
-
-=======
 Aplikacja stworzona do dzielenia wspólnych kosztów.
 Interfejs użytkownika (front-end) został stworzony przy użyciu frameworku Angular. Strona serwerowa (back-end) została zaimplementowana w Javie przy użyciu frameworku Spring Boot.
->>>>>>> c37f13c899dfa5f40c0fe4d0882fcfcc88ec9944
 ## Wykorzystane technologie:
 * Angular - Angular CLI: 10.0.3
 * Spring Boot - Java 1.8 SDK 8
