@@ -16,6 +16,7 @@ import { AlertComponent } from './alert/alert.component';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { SummaryComponent } from './summary/summary.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SummaryComponent } from './summary/summary.component'
     FormsModule,
     ReactiveFormsModule,
     NgxChartsModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

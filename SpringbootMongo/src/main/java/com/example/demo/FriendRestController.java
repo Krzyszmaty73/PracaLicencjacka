@@ -19,6 +19,9 @@ public class FriendRestController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private RoomRepository roomRepository;
+
     @GetMapping("/friends")
     public List<Friend> getInfo() { return repository.findAll(); }
 
@@ -64,8 +67,11 @@ public class FriendRestController {
     public ResponseEntity<Boolean> findByEmailAndRoomIDs(@PathVariable(value = "email")String email, @PathVariable(value = "roomID") String roomID)
             throws ResourceNotFoundException{
         Friend  friend = repository.findByEmailAndRoomIDs(email, roomID);
+        Room room = roomRepository.findByRoomID(Integer.parseInt(roomID));
         if(friend != null ) {
-            return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+            if(room.getStatus().equals("active")){
+                return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+            }
         }
         return new ResponseEntity<Boolean>(false, HttpStatus.OK);
     }

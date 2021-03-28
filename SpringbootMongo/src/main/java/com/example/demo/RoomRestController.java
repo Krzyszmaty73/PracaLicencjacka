@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -23,11 +24,51 @@ public class RoomRestController {
         return ResponseEntity.ok().body(optionalRoom);
     }
 
-    @GetMapping("/rooms/owner/{ownerEmail}")
+    /*@GetMapping("/rooms/owner/{ownerEmail}")
     public ResponseEntity<List<Room>> findByEmail(@PathVariable(value = "ownerEmail")String ownerEmail) {
         List<Room> rooms = repository.findByOwnerEmail(ownerEmail);
         return ResponseEntity.ok().body(rooms);
+    }*/
+
+    @GetMapping("/rooms/owner/{ownerEmail}")
+    public ResponseEntity<List<Room>> findByEmail(@PathVariable(value = "ownerEmail")String ownerEmail) {
+        List<Room> rooms = repository.findAll();
+        List<Room> tmp = new LinkedList<>();
+        List<String> tmpFriends;
+        for(Room r:rooms){
+            tmpFriends = r.getParticipantsIDs();
+            for(String s:tmpFriends){
+                if(s.equals(ownerEmail))
+                    tmp.add(r);
+            }
+        }
+        return ResponseEntity.ok().body(tmp);
     }
+
+
+    /*@GetMapping("/rooms/participants/{participant}")
+    public ResponseEntity<List<Room>> findRoomsByEmail(@PathVariable(value = "participant")String participant) {
+        List<Room> rooms = repository.findAll();
+        List<Room> tmp = new LinkedList<>();
+        List<String> aktualni;
+        for(Room r:rooms){
+            System.out.println("Biore pokoj : " + r);
+            aktualni = r.getParticipantsIDs();
+            System.out.println("Osoby z pokoju: " + aktualni);
+            for(String s:aktualni){
+                if(s.equals(participant)){
+                    System.out.println("Pokoj to : " + r);
+                    tmp.add(r);
+                } else {
+                    System.out.println("Nie ma takiej osoby");
+                }
+
+            }
+
+        }
+        System.out.println("Twoje wszystkie pokoje to " + tmp);
+        return ResponseEntity.ok().body(tmp);
+    }*/
 
     @PostMapping("/rooms")
     public Room createRoom(@RequestBody Room room){
